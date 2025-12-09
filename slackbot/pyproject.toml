@@ -1,0 +1,13 @@
+[project]
+name = "slackbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "llm>=0.27.1",
+    "llm-ollama>=0.15.1",
+    "llm-openrouter>=0.5",
+    "rich>=14.2.0",
+    "slack-bolt>=1.27.0",
+]

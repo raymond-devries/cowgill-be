@@ -1,0 +1,21 @@
+[project]
+name = "cowgill-be"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+
+[tool.uv.workspace]
+members = [
+    "slackbot",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.0",
+    "ruff>=0.14.8",
+    "ty>=0.0.1a32",
+]
+
+[tool.ruff]
+line-length = 120
+lint.extend-select = ["ANN", "I"]
