@@ -29,7 +29,7 @@ def message_is_classifier(event: dict, classifier: Classifier) -> bool:
     return classify(event["text"]) == classifier
 
 
-def only_channel(channel_id: dict) -> Callable[[dict], bool]:
+def only_channel(channel_id: str) -> Callable[[dict], bool]:
     return lambda event: event["channel"] == channel_id
 
 
