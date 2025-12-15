@@ -1,23 +1,38 @@
 [project]
 name = "cowgill-be"
 version = "0.1.0"
-description = "Add your description here"
+description = "Mooooo"
 requires-python = ">=3.13"
 
-[tool.uv.workspace]
-members = [
-    "slackbot",
+[dependency-groups]
+slackbot = [
+    "llm>=0.27.1",
+    "llm-ollama>=0.15.1",
+    "llm-openrouter>=0.5",
+    "rich>=14.2.0",
+    "slack-bolt>=1.27.0",
 ]
 
-[dependency-groups]
+
 dev = [
+    "oci>=2.164.1",
     "pre-commit>=4.5.0",
     "pulumi>=3.210.0",
     "pulumi-oci>=3.12.0",
+    "pulumiverse-talos>=0.6.1",
     "ruff>=0.14.8",
     "ty>=0.0.1a32",
+    {include-group = "slackbot"},
 ]
 
 [tool.ruff]
 line-length = 120
 lint.extend-select = ["ANN", "I"]
+
+[build-system]
+requires = ["uv_build>=0.9.17,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = ["slackbot"]
+module-root = ""
