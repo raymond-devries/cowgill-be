@@ -91,9 +91,6 @@ def make_compute(compartment: oci.identity.Compartment, image: oci.core.Image) -
             assign_public_ip="false",  # do not assign a public IP
             hostname_label="slackbot",
         ),
-        # metadata={
-        #     "user_data": tailscale_auth_key.apply(lambda key: base64.b64encode(cloud_init.format(key).encode()).decode())
-        # },
     )
 
     pulumi.export("instance_private_ip", instance.private_ip)
