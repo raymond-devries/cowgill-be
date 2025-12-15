@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slackbot
+  namespace: slackbot
+  labels:
+    app: slackbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slackbot
+  template:
+    metadata:
+      labels:
+        app: slackbot
+    spec:
+      containers:
+      - name: slackbot
+        image: ghcr.io/raymond-devries/cowgill-be:slack
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: slackbot-secrets
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

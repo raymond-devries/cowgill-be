@@ -1,3 +1,4 @@
 *.pyc
 .venv
 .idea
+k8s/secret.yaml
